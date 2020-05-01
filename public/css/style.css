@@ -1,0 +1,11 @@
+.flex.column{
+    max-width: 260px;
+}
+
+.flex .flex-item{
+    width: 30px
+}
+img{
+    margin: 5px;
+
+}

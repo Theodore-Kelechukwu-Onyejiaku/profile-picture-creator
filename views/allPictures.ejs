@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <title>All Images</title>
+    <style>
+        #loading {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            display: block;
+            opacity: 0.7;
+            background-color: #fff;
+            z-index: 99;
+            text-align: center;
+            }
+
+        #loading-image {
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 100;
+            }
+    </style>
+</head>
+<body style="margin-bottom: 30px;">
+    <div id="loading">
+        <img id="loading-image" src="time loader.gif" alt="Loading..." />
+    </div>
+
+     <div class="text-center">
+        <h1><a href="/"><i class="fa fa-home text-danger">Home</i></a></h1>
+    </div>
+    <h1 class="text-center text-danger">All Images</h1>
+    <!--   FOR TECHNOLOGY      -->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3"></div>
+            <div class="class-col-12 col-md-6">
+                <div class="d-flex flex-row">
+                    <div class="d-flex flex-column">
+                        <% if(img){ %>
+                            <% for(var i = img.length - 1; i >=0; i--) { %>
+                                    <img  class="img-fluid"  style="max-width:100%;height: auto;" src="<%= img[i].url %>" alt="profile image">        
+                                        <br>
+                                            <a href="<%=img[i].url %>" class="btn btn-success" download>Download</a>
+                            <% } %>     
+                        <% } %>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-12 col-md-3"></div>
+        </div>
+    </div> 
+
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <a class="navbar-brand" href="#">By Theodore Kelechukwu Onyejiaku (NodeJS, Multer and MongoDB)</a>
+    </nav>
+    <script>
+        window.addEventListener("load", ()=>{
+            document.getElementById("loading").style.display = "none";
+                if(!window.location.hash){
+                    window.location = window.location + "#loaded";
+                    window.location.reload();
+                }
+        })
+        
+    </script>
+</body>
+</html>

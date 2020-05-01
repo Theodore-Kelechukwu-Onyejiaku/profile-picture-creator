@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile Picture Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+<!-- partial:index.partial.html -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+<style>
+	#loading {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		right:0;
+		position: fixed;
+		display: none;
+		opacity: 0.7;
+		background-color: #fff;
+		z-index: 99;
+		text-align: center;
+		}
+
+	#loading-image {
+		position: absolute;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
+		text-align: center;
+		z-index: 100;
+		}
+	</style>
+</head>
+<body style="margin: 30px;">
+	<div id="loading">
+       <center> <img id="loading-image" src="time loader.gif" alt="Loading..." /> </center>
+    </div>
+
+<div class="container center">
+
+	<div class="row">
+		<div class="col-md-12">
+			<h1 >Profile Picture Generator</h1>
+			<p>Use any picture of your choice and see the result to download!</p>
+		</div>
+	</div>
+	
+	<form method="POST" action="/uploadSingle" enctype="multipart/form-data" accept-charset="utf-8"  autocomplete="off">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4"><img class="image-fluid" style="max-width:100%;height:auto;" src="" alt="" id="blah" /></div>
+				<div class="col-sm-4"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="form-group">
+					<input type="text" name="username" id="name" class="form-control" placeholder="Name: eg. Theodore Kelechukwu Onyejiaku" autofocus  required>
+				</div>
+				<div class="form-group">
+					<input type="text" name="stack" id="" class="form-control" placeholder="what do you do?: eg. JavaScript Developer" required>
+				</div>
+				
+				<div class="btn-container">
+					<!--the three icons: default, ok file (img), error file (not an img)-->
+					<h1 class="imgupload"><i class="fa fa-file-image-o"></i></h1>
+					<h1 class="imgupload ok"><i class="fa fa-check"></i></h1>
+					<h1 class="imgupload stop"><i class="fa fa-times"></i></h1>
+					<!--this field changes dinamically displaying the filename we are trying to upload-->
+					<p id="namefile">Only pics allowed! (jpg,jpeg,gif,png)</p>
+					<!--our custom btn which which stays under the actual one-->
+					<button type="button" id="btnup" class="btn btn-primary btn-lg">Browse for your pic!</button>
+					<!--this is the actual file input, is set with opacity=0 beacause we wanna see our custom one-->
+					<input type="file" value="" name="url" id="fileup">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-4"><img class="image-fluid" style="max-width:100%;height:auto;" src="" alt="" id="blah" /></div>
+				<div class="col-sm-4"></div>
+			</div>
+		</div>
+		
+			<!--additional fields-->
+		<div class="row">			
+			<div class="col-md-12">
+				<!--the defauld disabled btn and the actual one shown only if the three fields are valid-->
+				<input type="submit" value="Submit!" class="btn btn-primary" id="submitbtn" onclick="loader()">
+				<button type="button"  class="btn btn-default" disabled="disabled" id="fakebtn">Submit! <i class="fa fa-minus-circle"></i></button>
+			</div>
+		</div>
+		<img src="" alt="" id="blah">
+	</form>
+</div>
+
+<nav class="navbar fixed-bottom navbar-light bg-light">
+	<a class="navbar-brand" href="#">By Theodore Kelechukwu Onyejiaku (NodeJS, Multer and MongoDB)</a>
+</nav>
+
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script><script  src="./script.js"></script>
+
+<script type="text/javascript">
+	function readURL(input) {
+	if (input.files && input.files[0]) {
+	var reader = new FileReader();
+	
+	reader.onload = function(e) {
+	$('#blah').attr('src', e.target.result);
+	}
+	
+	reader.readAsDataURL(input.files[0]); // convert to base64 string
+	}
+	}
+	
+	$("#fileup").change(function() {
+	readURL(this);
+	});
+
+
+	function loader(){
+		document.getElementById("loading").style.display = "block";
+	}
+	
+	
+  </script>
+
+
+</body>
+</html>

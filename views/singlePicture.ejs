@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="/js/jquery-3.2.1.min.js"></script>
+</head>
+    <body>
+        Welcome to single page
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3"></div>
+                <div class="class-col-12 col-md-6">
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-column">
+                                <img class="img-fluid"  style="max-width:100%;height: auto;" src="<%= img.url %>" alt="sports image">        
+                                <br>
+                                <a href="<%=img.url %>" class="btn btn-success" download>Download</a>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-12 col-md-3"></div>
+            </div>
+        </div>
+    </body>
+</html>
