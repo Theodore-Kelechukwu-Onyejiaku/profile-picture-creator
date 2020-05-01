@@ -125,7 +125,7 @@ function checkFileType(file, cb){
                 //Beginning of JIMP
                 let imgRaw = req.file.path; //This is the image that was posted from our form
                 let imgLogo = '06.jpg'; //This is the logo
-                let imgExported = 'public/'+Date.now()+".jpg";
+                let imgExported = 'public/'+Date.now()+".png";
 
                 let textData = {
                     text: req.body.username+":\n"+req.body.stack, //the text to be rendered on the image
@@ -145,10 +145,12 @@ function checkFileType(file, cb){
                       logoTpl.resize(100,100);
                       logoTpl.circle();
 
+                        //normal
                       function first(){
                         return tpl.quality(100).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
+                      //greyscale
                       function second(){
                         return tpl.quality(100).greyscale().composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
@@ -172,8 +174,9 @@ function checkFileType(file, cb){
                         return tpl.quality(100).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
+                      //posterize
                       function seven(){
-                        return tpl.quality(100).fisheye().color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(100).posterize(7).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                     var anyNo = Math.floor(Math.random() * 7) + 1;
