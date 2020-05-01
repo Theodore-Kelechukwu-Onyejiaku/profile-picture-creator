@@ -175,19 +175,33 @@ function checkFileType(file, cb){
                       function seven(){
                         return tpl.quality(100).fisheye().color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
-
-
-
-
-                    
                       
+                    var anyNo = Math.floor(Math.random() * 7) + 1;
+                    if(anyNo === 7){
+                        return seven() 
+                    }
+                    else if(anyNo === 6){
+                        return six() 
+                    }
+                    else if(anyNo === 5){
+                        return five() 
+                    }
+                    else  if(anyNo === 4){
+                        return four() 
+                    }
+
+                    else  if(anyNo === 3){
+                        return three() 
+                    }
+                    else if(anyNo === 2){
+                        return second() 
+                    }
+                    else{
+                        return first() 
+                    }
 
 
-                    //   var arr = [                                                
-                    // ]
-                    
-                    return seven() //tpl.quality(100).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
-                        
+
                     
                     })
                   )
