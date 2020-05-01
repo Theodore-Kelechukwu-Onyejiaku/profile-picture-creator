@@ -130,8 +130,8 @@ function checkFileType(file, cb){
                 let textData = {
                     text: req.body.username+":\n"+req.body.stack, //the text to be rendered on the image
                     maxWidth: 500, //Maximum width of text
-                    maxHeight: 500, //Maximum height of text
-                    placementX: 0, // Placement from x-axis
+                    maxHeight: 1000, //Maximum height of text
+                    placementX: 50, // Placement from x-axis
                     placementY: 400 //Placement from y-axis
                   };
 
