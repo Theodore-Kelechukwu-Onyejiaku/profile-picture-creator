@@ -11,7 +11,7 @@ const Jimp = require("jimp");
 require("dotenv").config();
 
 //Connecting to MongoDB Database
-mongoose.connect(process.env.DATABASE_LOCAL,{
+mongoose.connect(process.env.DATABASE,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
