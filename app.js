@@ -130,7 +130,7 @@ function checkFileType(file, cb){
                 let textData = {
                     text: req.body.username+":\n"+req.body.stack, //the text to be rendered on the image
                     maxWidth: 500, //Maximum width of text
-                    maxHeight: 200, //Maximum height of text
+                    maxHeight: 500, //Maximum height of text
                     placementX: 0, // Placement from x-axis
                     placementY: 400 //Placement from y-axis
                   };
@@ -175,7 +175,7 @@ function checkFileType(file, cb){
                       function seven(){
                         return tpl.quality(100).fisheye().color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
-                      
+
                     var anyNo = Math.floor(Math.random() * 7) + 1;
                     if(anyNo === 7){
                         return seven() 
