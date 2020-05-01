@@ -52,7 +52,7 @@ app.get("/pictures", (req, res)=>{
     Image.find()
         .then(image =>{
             setTimeout(()=>{ res.render("allPictures", {img : image}) }
-            ,3000)
+            ,1000)
         })
         .catch(err =>{
             res.render("allPictures", {message: "Can't find any image"})
@@ -144,21 +144,50 @@ function checkFileType(file, cb){
                       logoTpl.opacity(1);
                       logoTpl.resize(100,100);
                       logoTpl.circle();
+
+                      function first(){
+                        return tpl.quality(100).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                      }
+
+                      function second(){
+                        return tpl.quality(100).greyscale().composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                      }
+
+                      function three(){
+                        return tpl.quality(100).rotate(-5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                      }
+
+                      //flip
+                      function four(){
+                        return tpl.quality(100).flip(true, false).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                      }
+
+                      //blur
+                      function five(){
+                        return tpl.quality(100).blur(5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                      }
+
+                      //color spin
+                      function six(){
+                        return tpl.quality(100).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                      }
+
+                      function seven(){
+                        return tpl.quality(100).fisheye().color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                      }
+
+
+
+
+                    
                       
 
 
-                      var arr = [
-                         tpl.quality(100).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
-                        ,tpl.quality(100).greyscale().composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
-                        ,tpl.quality(100).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
-                        ,tpl.quality(100).color([{apply: "hue", params: [-90]},{apply: "lighten", params: [50]},{apply: "xor", params: ["#O6D"]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
-                        ,tpl.quality(100).greyscale().color([{ apply: 'red', params: [100] }]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
-                        ,tpl.quality(100).greyscale().color([{ apply: "blue", params: [100] }]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
-                        ,tpl.quality(100).circle({ radius: 50, x: 25, y: 25 }).fisheye({ r: 1.6 }).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
-                        
-                    ]
+                    //   var arr = [                                                
+                    // ]
                     
-                    return  arr[0]
+                    return seven() //tpl.quality(100).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        
                     
                     })
                   )
