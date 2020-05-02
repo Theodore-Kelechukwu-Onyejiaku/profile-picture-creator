@@ -126,8 +126,8 @@ function checkFileType(file, cb){
 
                 let textData = {
                     text: req.body.username+":\n"+req.body.stack, //the text to be rendered on the image
-                    maxWidth: 500, //Maximum width of text
-                    maxHeight: 100, //Maximum height of text
+                    maxWidth: 100, //Maximum width of text
+                    maxHeight: 50, //Maximum height of text
                     placementX: 0, // Placement from x-axis
                     placementY: 400 //Placement from y-axis
                   };
@@ -139,7 +139,7 @@ function checkFileType(file, cb){
                 .then(tpl => (
                     Jimp.read(imgLogo).then(logoTpl => {
                       logoTpl.opacity(1);
-                      logoTpl.resize(100,100);
+                      logoTpl.resize(50,50);
                       logoTpl.circle();
 
                         //normal
