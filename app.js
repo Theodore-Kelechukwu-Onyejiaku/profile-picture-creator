@@ -125,7 +125,7 @@ function checkFileType(file, cb){
                 //Beginning of JIMP
                 let imgRaw = req.file.path; //This is the image that was posted from our form
                 let imgLogo = '06.jpg'; //This is the logo
-                let imgExported = 'public/'+Date.now()+".png";
+                let imgExported = 'public/uploads/'+Date.now()+".png";
 
                 let textData = {
                     text: req.body.username+":\n"+req.body.stack, //the text to be rendered on the image
@@ -147,36 +147,36 @@ function checkFileType(file, cb){
 
                         //normal
                       function first(){
-                        return tpl.quality(0).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).resize(300,300).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       //greyscale
                       function second(){
-                        return tpl.quality(0).greyscale().composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).resize(300,300).greyscale().composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       function three(){
-                        return tpl.quality(0).rotate(-5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).resize(300,300).rotate(-5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       //flip
                       function four(){
-                        return tpl.quality(0).flip(true, false).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).resize(300,300).flip(true, false).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       //blur
                       function five(){
-                        return tpl.quality(0).blur(5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).resize(300,300).blur(5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       //color spin
                       function six(){
-                        return tpl.quality(0).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).resize(300,300).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       //posterize
                       function seven(){
-                        return tpl.quality(0).posterize(7).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).resize(300,300).posterize(7).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                     var anyNo = Math.floor(Math.random() * 7) + 1;
