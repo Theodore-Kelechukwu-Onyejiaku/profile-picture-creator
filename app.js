@@ -147,36 +147,36 @@ function checkFileType(file, cb){
 
                         //normal
                       function first(){
-                        return tpl.quality(5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       //greyscale
                       function second(){
-                        return tpl.quality(5).greyscale().composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).greyscale().composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       function three(){
-                        return tpl.quality(5).rotate(-5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).rotate(-5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       //flip
                       function four(){
-                        return tpl.quality(5).flip(true, false).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).flip(true, false).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       //blur
                       function five(){
-                        return tpl.quality(5).blur(5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).blur(5).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       //color spin
                       function six(){
-                        return tpl.quality(5).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                       //posterize
                       function seven(){
-                        return tpl.quality(5).posterize(7).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
+                        return tpl.quality(0).posterize(7).color([{apply:'spin', params: [50]}]).composite(logoTpl, 20, 20, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2])
                       }
 
                     var anyNo = Math.floor(Math.random() * 7) + 1;
