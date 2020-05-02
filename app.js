@@ -32,8 +32,6 @@ app.set("view engine", "ejs")
 //Static Pages
 app.use(express.static("public"));
 
-//Cofiguring methodOVerride
-app.use(methodOverride("_method"))
 
 /**
  *  GET REQUESTS
