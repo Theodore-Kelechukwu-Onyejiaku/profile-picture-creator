@@ -3,28 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery Application</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
     <script src="/js/jquery-3.2.1.min.js"></script>
+    <title>Download Your Image</title>    
 </head>
-    <body>
-        Welcome to single page
+<body style="margin-bottom: 30px;">
+    <div id="loading">
+        <img id="loading-image" src="time loader.gif" alt="Loading..." />
+    </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-3"></div>
-                <div class="class-col-12 col-md-6">
-                    <div class="d-flex flex-row">
-                        <div class="d-flex flex-column">
-                                <img class="img-fluid"  style="max-width:100%;height: auto;" src="<%= img.url %>" alt="sports image">        
-                                <br>
-                                <a href="<%=img.url %>" class="btn btn-success" download>Download</a>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-12 col-md-3"></div>
+     <div class="text-center footer">
+        <h1><a href="/"><i class="fa fa-home text-danger">Home</i></a></h1>
+        <h1 class="text-center text-mute">Your Picture</h1>
+    </div>
+    
+    <!--   FOR TECHNOLOGY      -->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3"></div>
+            <div class="class-col-12 col-md-6">
+                <div class="d-flex flex-row">
+                    <div class="d-flex flex-column">
+                        <% if(img){ %>
+                            
+                            <% for(var i = img.length - 1; i === img.length - 1 ; i--) { %>
+                                    <img  class="img-fluid"  style="max-width:100%;height: auto;" src="/uploads/<%= img[i].url %>" alt="profile image">        
+                                    <br>
+                                    <span class="text-success">Name: </span><span style="color:black "><%= img[i].username %></span> 
+                                    <br>
+                                    <span class="text-success"> Stack:<span style="color:black"> <%= img[i].stack %></span>
+                                    <br>
+                                    <a href="uploads/<%=img[i].url %>" class="btn btn-success" download>Download</a><hr>           
+                            <% } %>     
+                        <% } %>
+                        <h3 class="text-center text-danger"> What a wonderful picture! Quickly use it as a DP </h3>
+                    </div>
+                </div> 
             </div>
+            <div class="col-12 col-md-3"></div>
         </div>
-    </body>
+        <h2  class="text-center text-danger">Download Now BEFORE:</h2>
+        <h1><span id="counter" class="text-center badge badge-secondary">New</span></h1>
+        
+    </div> 
+    <footer class="footer mb-0" style="font-size: larger;">
+        <div class="container text-center">
+          <span class="text-white">
+            Created By Theodore Kelechukwu Onyejiaku
+            <br />
+            Using NodeJs, Multer, Express, Jimp and MongoDB.
+            <br/> Follow me, but I will be at your back, on: <br/>
+            <a style="color:white" href="https://www.linkedin.com/in/theodore20151014166/">
+              <i class="fa fa-linkedin"></i> </a
+            >|
+            <a style="color:white" href="https://github.com/Theodore-Kelechukwu-Onyejiaku">
+              <i class="fa fa-github"></i> </a
+            >|
+            <a style="color:white" href="https://www.facebook.com/profile.php?id=100006965327164">
+              <i class="fa fa-facebook"></i> </a
+            >
+          </span>
+        </div>
+      </footer>
+    <script>
+        var count = 10;
+        setInterval(()=>{
+            document.getElementById("counter").innerText = count;
+            count--;
+        }, 1000)
+        
+        window.addEventListener("load", ()=>{
+            document.getElementById("loading").style.display = "none";
+                if(!window.location.hash){
+                    window.location = window.location + "#loaded";
+                    window.location.reload();
+                }
+                setTimeout(()=>{
+                        window.location = "/pictures";
+                }, 10000)
+        })
+        
+    </script>
+</body>
 </html>

@@ -5,43 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./style.css">
     <script src="/js/jquery-3.2.1.min.js"></script>
-    <title>All Images</title>
-    <style>
-        #loading {
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            position: fixed;
-            display: block;
-            opacity: 0.7;
-            background-color: #fff;
-            z-index: 99;
-            text-align: center;
-            }
-
-        #loading-image {
-            position: absolute;
-            margin-left: auto;
-            margin-right: auto;
-            left: 0;
-            right: 0;
-            text-align: center;
-            z-index: 100;
-            }
-    </style>
+    <title>All Images</title>    
 </head>
 <body style="margin-bottom: 30px;">
     <div id="loading">
         <img id="loading-image" src="time loader.gif" alt="Loading..." />
     </div>
 
-     <div class="text-center">
+     <div class="text-center footer">
         <h1><a href="/"><i class="fa fa-home text-danger">Home</i></a></h1>
+        <h1 class="text-center text-white">All Images</h1>
     </div>
-    <h1 class="text-center text-danger">All Images</h1>
+    
     <!--   FOR TECHNOLOGY      -->
     
     <div class="container">
@@ -54,17 +31,42 @@
                             
                             <% for(var i = img.length - 1; i >=0; i--) { %>
                                     <img  class="img-fluid"  style="max-width:100%;height: auto;" src="/uploads/<%= img[i].url %>" alt="profile image">        
-                                        <br>
-                                            <a href="uploads/<%=img[i].url %>" class="btn btn-success" download style="margin-bottom:48px;">Download</a><hr>
-                                            
+                                    <br>
+                                    <span class="text-success">Name: </span><span style="color:black "><%= img[i].username %></span> 
+                                    <br>
+                                    <span class="text-success"> Stack:<span style="color:black"> <%= img[i].stack %></span>
+                                    <br>
+                                    
+                                    <a href="uploads/<%=img[i].url %>" class="btn btn-success" download style="margin-bottom:10px;">Download</a><hr>
+                                    <div style="border-bottom: 3px solid red"></div>
                             <% } %>     
                         <% } %>
+                        
                     </div>
                 </div> 
             </div>
             <div class="col-12 col-md-3"></div>
         </div>
     </div> 
+    <footer class="footer mb-0" style="font-size: larger;">
+        <div class="container text-center">
+          <span class="text-white">
+            Created By Theodore Kelechukwu Onyejiaku
+            <br />
+            Using NodeJs, Multer, Express, Jimp and MongoDB.
+            <br/> Follow me, but I will be at your back, on: <br/>
+            <a style="color:white" href="https://www.linkedin.com/in/theodore20151014166/">
+              <i class="fa fa-linkedin"></i> </a
+            >|
+            <a style="color:white" href="https://github.com/Theodore-Kelechukwu-Onyejiaku">
+              <i class="fa fa-github"></i> </a
+            >|
+            <a style="color:white" href="https://www.facebook.com/profile.php?id=100006965327164">
+              <i class="fa fa-facebook"></i> </a
+            >
+          </span>
+        </div>
+      </footer>
     <script>
         window.addEventListener("load", ()=>{
             document.getElementById("loading").style.display = "none";

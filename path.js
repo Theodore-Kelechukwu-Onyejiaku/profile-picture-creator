@@ -10,9 +10,9 @@ let imgExported = 'export/image1.jpg';
 
 let textData = {
   text: '© JKRB Investments Limited', //the text to be rendered on the image
-  maxWidth: 500, //image width - 10px margin left - 10px margin right
-  maxHeight: 100, //logo height + margin
-  placementX: 1, // 10px in on the x axis
+  maxWidth: 1004, //image width - 10px margin left - 10px margin right
+  maxHeight: 72 + 20, //logo height + margin
+  placementX: 10, // 10px in on the x axis
   placementY: 700 //bottom of the image: height - maxHeight - margin 
 };
 
