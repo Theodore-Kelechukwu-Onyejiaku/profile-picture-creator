@@ -1,14 +1,14 @@
-##Title:
+## Title:
 Profile Creator app
 
-##Description:
+## Description:
 It allows you to upload a picture and automatically processes it for you to download
 
-##Tools
+## Tools
 NodeJs, Multer, MongoDB, JIMP(JavaScript Image Manipulation Program), and Express
 
-##How to install
+## How to install
  npm install
 
-##How to run for development
+## How to run for development
 npm run dev
